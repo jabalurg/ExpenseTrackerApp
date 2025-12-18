@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="450.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.expensetracker.ExpenseController">
+    <top>
+        <HBox spacing="10.0" BorderPane.alignment="CENTER">
+            <children>
+                <TextField fx:id="nameField" promptText="Название" />
+                <TextField fx:id="priceField" prefWidth="80.0" promptText="Цена" />
+                <DatePicker fx:id="datePicker" prefWidth="120.0" />
+                <Button mnemonicParsing="false" onAction="#handleAddExpense" text="Добавить" />
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+        </HBox>
+    </top>
+    <center>
+        <TableView fx:id="tableView" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="nameColumn" prefWidth="250.0" text="Название" />
+                <TableColumn fx:id="priceColumn" prefWidth="150.0" text="Цена" />
+                <TableColumn fx:id="dateColumn" prefWidth="150.0" text="Дата" />
+            </columns>
+        </TableView>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER_LEFT" spacing="15.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label text="Фильтр:" />
+                <ComboBox fx:id="monthFilter" onAction="#handleFilter" prefWidth="150.0" promptText="Выберите месяц" />
+                <Button mnemonicParsing="false" onAction="#handleResetFilter" text="Сброс" />
+                <Region HBox.hgrow="ALWAYS" />
+                <Label fx:id="totalLabel" style="-fx-font-weight: bold; -fx-font-size: 16;" text="Итого: 0.00" />
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+        </HBox>
+    </bottom>
+</BorderPane>
